@@ -73,6 +73,16 @@ class ProducerTest extends TestCase
         self::assertStringEqualsFile($this->filename, self::MESSAGE_PAYLOAD);
     }
 
+    public function testFlush()
+    {
+        $topic = $this->producer->newTopic('test');
+        $topic->produce(RD_KAFKA_PARTITION_UA, 0, self::MESSAGE_PAYLOAD);
+
+        $this->producer->flush(100);
+
+        self::assertStringEqualsFile($this->filename, self::MESSAGE_PAYLOAD);
+    }
+
     public function testSetLogLevel()
     {
         $this->producer->setLogLevel(LOG_DEBUG);

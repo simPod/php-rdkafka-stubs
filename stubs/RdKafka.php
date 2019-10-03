@@ -63,6 +63,15 @@ abstract class RdKafka
     }
 
     /**
+     * @param int $timeout_ms
+     *
+     * @return void
+     */
+    public function flush($timeout_ms)
+    {
+    }
+
+    /**
      * @param int $level
      *
      * @return void

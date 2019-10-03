@@ -67,6 +67,13 @@ class ConsumerTest extends TestCase
         $this->markTestIncomplete('Create real test and trigger a callback using poll()');
     }
 
+    public function testFlush()
+    {
+        $this->consumer->flush(0);
+
+        $this->markTestIncomplete('Create real test and trigger a callback using flush()');
+    }
+
     public function testSetLogLevel()
     {
         $this->consumer->setLogLevel(LOG_DEBUG);
